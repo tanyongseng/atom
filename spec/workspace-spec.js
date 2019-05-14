@@ -887,6 +887,20 @@ describe('Workspace', () => {
           ).toEqual([2, 11])
         )
       })
+
+      it('unfolds the fold containing the line', async () => {
+        let editor
+
+        await workspace.open('../sample-with-many-folds.js')
+        editor = workspace.getActiveTextEditor()
+        editor.foldBufferRow(2)
+        expect(editor.isFoldedAtBufferRow(2)).toBe(true)
+        expect(editor.isFoldedAtBufferRow(3)).toBe(true)
+
+        await workspace.open('../sample-with-many-folds.js', { initialLine: 2 })
+        expect(editor.isFoldedAtBufferRow(2)).toBe(false)
+        expect(editor.isFoldedAtBufferRow(3)).toBe(false)
+      })
     })
 
     describe('when the file size is over the limit defined in `core.warnOnLargeFileLimit`', () => {
@@ -2511,7 +2525,10 @@ describe('Workspace', () => {
           })
 
           runs(() => {
-            fs.renameSync(path.join(projectPath, 'git.git'), path.join(projectPath, '.git'))
+            fs.renameSync(
+              path.join(projectPath, 'git.git'),
+              path.join(projectPath, '.git')
+            )
             ignoredPath = path.join(projectPath, 'ignored.txt')
             fs.writeFileSync(ignoredPath, 'this match should not be included')
           })
