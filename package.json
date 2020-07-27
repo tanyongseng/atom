@@ -117,7 +117,7 @@
     "line-top-index": "0.3.1",
     "link": "file:packages/link",
     "markdown-preview": "https://www.atom.io/api/packages/markdown-preview/versions/0.160.0/tarball",
-    "marked": "^0.3.12",
+    "marked": "^1.1.1",
     "metrics": "https://www.atom.io/api/packages/metrics/versions/1.7.4/tarball",
     "minimatch": "^3.0.3",
     "mocha": "2.5.1",
