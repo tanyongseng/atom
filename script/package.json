@@ -41,7 +41,7 @@
     "random-seed": "^0.3.0",
     "season": "5.3.0",
     "semver": "5.3.0",
-    "stylelint": "^9.0.0",
+    "stylelint": "^9.7.0",
     "stylelint-config-standard": "^18.1.0",
     "sync-request": "3.0.1",
     "tello": "1.0.7",
